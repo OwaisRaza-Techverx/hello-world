@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>COMMENTS</title>
+</head>
+<body>
+<p>
+	<strong>Title:</strong>
+	<%= @article.title %>
+</p>
+ 
+<p>
+	<strong>Text:</strong>
+	<%= @article.para %>
+</p>
+
+
+<h2>Comments</h2>
+<table>
+	<% if(@article.comments.count>0)%>
+		<th>Commenter:</th><th>Comment:</th>
+	<% end %>
+
+	
+  		<%= render @article.comments %>
+	
+</table>
+		<h2>Add a comment:</h2>
+		<%= form_for([@article, @article.comments.build]) do |f| %>
+	<p>
+    	<%= f.label :commenter %><br>
+    	<%= f.text_field :commenter %>
+  	</p>
+  	<p>
+   		<%= f.label :body %><br>
+    	<%= f.text_area :body %>
+  	</p>
+
+  	<p>
+    	<%= f.submit %>
+  	</p> 
+<% end %>
+</body>
+</html>

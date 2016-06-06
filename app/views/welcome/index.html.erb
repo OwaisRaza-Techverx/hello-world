@@ -1,0 +1,40 @@
+<% if user_signed_in? %>
+  <h1>First Task</h1>
+  <h2>USERNAME:</h2><h2><%= current_user.username %></h2>
+  <h1><%=  link_to('EDIT PASSWORD', edit_user_registration_path) %></h1>
+<table>
+  <tr>
+    <th>id</th>
+    <th>Email</th>
+    <th>Username</th>
+  </tr>
+ 
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.email %></td>
+      <td><%= user.username %></td>
+      
+    </tr>
+  <% end %>
+</table>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete)  %>
+          
+  </li>
+<% else %>
+
+<li>
+  <%= link_to('Login', new_user_session_path)  %>  
+</li>
+
+<% end %>
+
+<style type="text/css">
+h2{
+  color: blue; display: inline;
+}
+h1 a{
+  text-decoration: none;
+}
+</style>
