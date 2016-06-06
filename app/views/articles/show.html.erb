@@ -1,4 +1,6 @@
 <h1>Editing article</h1>
+<h1>HELLO WORLDS</h1>
+<h1>NEW LINE</h1>
  
 <%= form_for :article, url: article_path(@article), method: :patch do |f| %>
  
@@ -15,7 +17,7 @@
       </ul>
     </div>
   <% end %>
- 
+   
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
